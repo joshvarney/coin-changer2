@@ -66,5 +66,9 @@ class Test_Coin_changer2 <Minitest::Test
 		amount = 50
 		assert_equal({quarter: 2}, coin_changer(amount))
 	end
+	def test_that_will_work_with_99_amount
+		amount = 99
+		assert_equal({quarter: 3, dime: 2, penny: 4}, coin_changer(amount))
+	end
 
 end
