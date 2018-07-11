@@ -1,17 +1,47 @@
 def coin_changer(amount)
 	amount
+	exchange = {}
 	coins = {
-			1 => "penny",
-			2..4 => "pennies",
-			5 => "nickel",
+			quarter: 25,
+			dime: 10,
+			nickel: 5,
+			penny: 1,
 		}
-	if amount == 1
-		coins = coins[1]
-	elsif amount < 5
-	 	coins = amount.to_s + " " + coins[2..4]
-	elsif amount == 5
-		coins = coins[5]
-	end 
-	coins
+		coins.each do  |key, value|
+			if amount == value
+			exchange[key] = amount / amount
+			elsif amount > value
+				amount = amount / value
+				p amount
+				exchange[key] = amount
+				p amount = amount % value
 
+			
+		end
+		end
+
+
+			# amount2 = amount / value
+			# p amount2
+			# if amount != value
+
+			# 	exchange[key] = amount % amount
+			# 	exchange
+			# elsif amount == value
+			# 		exchange[key] = 1
+			# 		exchange
+				# elsif
+				# amount2 = amount % 5
+				# exchange = amount1.to_s + " "
+			 
+				
+			 
+			
+			# elsif amount < 5
+	 	# 		exchange = amount.to_s + " " + coins[2..4].to_s
+			# elsif amount == 5
+			# 	coins2 = "1" + " " + coins[amount]
+			# elsif amount < 10 && amount > 5
+			# 	coins2 = "1"
+	exchange
 end
