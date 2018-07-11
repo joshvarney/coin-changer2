@@ -7,14 +7,19 @@ def coin_changer(amount)
 			nickel: 5,
 			penny: 1,
 		}
+		counter = 0
 		coins.each do  |key, value|
-			if amount == value
-			exchange[key] = amount / amount
-			elsif amount > value
-				amount = amount / value
-				p amount
-				exchange[key] = amount
-				p amount = amount % value
+
+			if amount >= value
+				exchange[key] = amount / value
+				amount = amount % value
+				p counter
+				amount 
+			# elsif amount > value && amount < 10
+			# 	amount = amount / value
+			# 	p amount
+			# 	exchange[key] = amount
+			# 	p amount = amount % value
 
 			
 		end
