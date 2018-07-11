@@ -13,7 +13,6 @@ def coin_changer(amount)
 			if amount >= value
 				exchange[key] = amount / value
 				amount = amount % value
-				p counter
 				amount 
 			# elsif amount > value && amount < 10
 			# 	amount = amount / value
