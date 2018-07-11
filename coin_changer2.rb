@@ -1,10 +1,13 @@
 def coin_changer(amount)
 	amount
-	coins = ["penny", "pennies"]
+	coins = {
+			1 => "penny",
+			2..4 => "pennies"
+		}
 	if amount == 1
-		coins = coins[0]
+		coins = coins[1]
 	elsif amount < 5
-		coins = amount.to_s + " " + coins[1]
+	 	coins = amount.to_s + " " + coins[2..4]
 	end 
 	coins
 

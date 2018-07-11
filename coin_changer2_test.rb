@@ -14,6 +14,11 @@ class Test_Coin_changer2 <Minitest::Test
 		amount = 2
 		assert_equal("2 pennies", coin_changer(amount))
 	end
+	def test_that_4_will_come_back_as_4_pennies
+		amount = 4
+		assert_equal("4 pennies", coin_changer(amount))
+	end
+
 
 
 
