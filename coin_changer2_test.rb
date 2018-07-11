@@ -18,10 +18,15 @@ class Test_Coin_changer2 <Minitest::Test
 		amount = 4
 		assert_equal("4 pennies", coin_changer(amount))
 	end
-	def test_what_will_happen_when_5_is_passed_in
+	# def test_what_will_happen_when_5_is_passed_in
+	# 	amount = 5
+	# 	assert_equal(Hash, coin_changer(amount).class)
+	# end
+	def test_that_5_will_now_come_back_as_nickel
 		amount = 5
-		assert_equal(Hash, coin_changer(amount).class)
+		assert_equal("nickel", coin_changer(amount))
 	end
+
 
 
 
