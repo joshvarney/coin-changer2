@@ -50,5 +50,9 @@ class Test_Coin_changer2 <Minitest::Test
 		amount = 19
 		assert_equal({dime: 1, nickel: 1, penny: 4}, coin_changer(amount))
 	end
+	def test_that_will_return_2_dimes
+		amount = 20
+		assert_equal({dime: 2}, coin_changer(amount))
+	end
 
 end
