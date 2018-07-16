@@ -1,3 +1,5 @@
+# puts "Enter amount of change you need:"
+# amount = gets.chomp.to_i
 def coin_changer(amount)
 	exchange = {}
 	coins = {
@@ -11,6 +13,7 @@ def coin_changer(amount)
 				exchange[key] = amount / value
 				amount = amount % value
 			end
-		end
-	exchange
+		end	
+exchange
 end
+# puts coin_changer(amount)
