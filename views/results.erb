@@ -3,22 +3,25 @@
 
 <body style="background-color:salmon;">
 
-
 <h1>Please enter amount of change you need:</h1>
 <form method="post" action="num">
 <input type="number" name="int" autofocus>
 <input type="submit" value="Coins" onclick>
 </form>
-<h1>Here is your coins</h1>
-
-<h2><%conv_num.each_pair do |key, value| %>
-<% if value > 1 && key == :penny %>
-	<% key = "pennies" %>
-<% elsif value > 1 %>
-	<% key = key.to_s + "s" %>
-	<% end%>
-<%= value%> <%= key%><br>
-
-<% end%></h2>
+	<%if int.to_i > 0%> 
+		<h1>Here is your coins:</h1>
+		<h2><%conv_num.each_pair do |key, value|%>
+			<%if value > 1 && key == :penny%>
+				<%key = "pennies"%>
+			<%elsif value > 1%>
+				<%key = key.to_s + "s"%>
+			<%end%>
+		<%=value%> <%=key%><br>
+		<%end%></h2>
+	<%elsif int.to_i == 0%>
+		<h1>You get no coins!</h1>
+	<%elsif int.to_i < 0%>
+		<h1>You owe me money!</h1>
+	<%end%>
 </body>
 </html>
