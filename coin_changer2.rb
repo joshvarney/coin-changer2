@@ -3,6 +3,8 @@
 def coin_changer(amount)
 	exchange = {}
 	coins = {
+			silver_dollar: 100,
+			fifty_cent_piece: 50,
 			quarter: 25,
 			dime: 10,
 			nickel: 5,
