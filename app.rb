@@ -6,12 +6,8 @@ get '/' do
 	erb :first_page
 end
 
-post '/num' do
+post '/coin_changer' do
 int = params[:int].to_i
 session[:conv_num] = coin_changer(int)
-redirect '/results?int=' + "#{int}" 
-	end
-	get '/results' do 
-		int = params[:int]
-		erb :results, locals:{int: int, conv_num: session[:conv_num]} 
-	end
+erb :first_page, locals:{int: int, conv_num: session[:conv_num]}
+end
