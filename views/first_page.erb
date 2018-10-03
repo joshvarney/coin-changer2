@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html>
-<body style="background-color:salmon;">
-<h1>Please enter amount of change you need:</h1>
-<form method="post" action="coin_changer" id="my_form">
+<body>
+<h1>How much change do you have?</h1>
+<form method="post" action="coin_changer" id="my_form" onclick="currentTime()">
 <input type="number" name="int" id="welcome" onfocusout="welcomeTo()">
-<input type="submit" value="Coins">
+<input type="submit" value="Coins" id="stuff">
 </form>
 <%unless params == {}%>
-<%if int.to_i > 0%> 
+<%if int.to_i > 0%>
+		<h1 id="things"></h1>
 		<h1>Here is your coins:</h1>
 		<h2><%conv_num.each_pair do |key, value|%>
 			<%if value > 1 && key == :penny%>
@@ -25,13 +24,30 @@
 	<%end%>
 </body>
 <script>
+function currentTime() {
+	var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+	var monthNames = ["December, January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November"]
+	var date = new Date();
+    var currDate = date.getDate();
+    var hours = date.getHours();
+    var dayName = dayNames[date.getDay()];
+    var minutes = date.getMinutes();
+    var monthName = monthNames[date.getMonth()];
+    var year = date.getFullYear();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    var strTime = dayName + ' ' + monthName + ', ' + currDate + 'th ' + year + ' ' + hours + ':' + minutes + ' ' + ampm;   
+    document.getElementById("things").innerHTML = strTime
+}
 function welcomeTo() {
 	if(document.getElementById("welcome").value != "") {
-	alert("Welcome to coin changer");
+	alert("Welcome to coin changer " + new Date().toLocaleString() + ".");
 	document.getElementById("my_form").submit();
 	}else {
-	alert("Welcome to Coin Changer, please input the number of cents you have.");
+	alert("Welcome to Coin Changer, please input the number of cents you have. " + new Date().toLocaleString() + ".");
+	document.getElementById("body")
 	};
 };
 </script>
-</html>
